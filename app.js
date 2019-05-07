@@ -26,49 +26,44 @@ var firstAndPike = {
     maxCust: 65,
     salesPerCust: 6.3,
     hourlySales: [],
+    // cookiesEachHour:[],
     totalDailySales: 0,
     hourlySalesCalc: function(){
         for (var i = 0; i < storeHours.length; i++){
-        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
+        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust));
         } 
     },
-}
+
+    dailyTotalCalculator: function(){
+      for (var i = 0; i < this.hourlySales.length; i++){
+      this.totalDailySales += this.hourlySales[i];
+      }
+    },
+    allCall: function(){
+      this.hourlySalesCalc();
+      this.dailyTotalCalculator();
+      this.render();
+    },
 
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
-render: function(){
+    render: function(){
         for (var i = 0; i < storeHours.length; i++){
         // create an element
         var liEl = document.createElement('li');
-        console.log('liEl is', liEl);
         // give the element content
         liEl.textContent = storeHours[i] + ': ' + this.hourlySales[i] + ' cookies';
-        console.log('liEl with content', liEl);
         // append the element to the dom
         pikeyFirst.appendChild(liEl);
       }
-      var totalOne = 0;
-
-      for (i = 0; i < this.hourlySales.length; i++){
-        totalOne += this.hourlySales[i];
-      }
-
-      var totalEl = document.createElement('li');
-      console.log('totalEl is' totalEl);
-      totalEl.textContent = 'Total: + totalOne + ' cookies ';
-      firstAndPike.appendChild();
+      var liEl = document.createElement('li');
+      liEl.textContent = 'Total: ' + this.totalDailySales;
+      pikeyFirst.appendChild(liEl);
     }
+  }
+     
 
-  //helper function
+firstAndPike.allCall();
 
-// function calcRandomCustomers(min, max){
-  // following line from MDN docs on math.random
-// return Math.floor)(Math.random() * ( min - max + 1 ))
-
-
-firstAndPike.hourlySalesCalc();
-firstAndPike.render();
-// calculateSum[0];
-//total cookies
 
 
 
@@ -100,11 +95,23 @@ var seaTacAir = {
     maxCust: 24,
     salesPerCust: 1.2,
     hourlySales: [],
+    totalDailySales: 0,
     hourlySalesCalc: function(){
         for (var i = 0; i < storeHours.length; i++){
         this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
         } 
     },
+    dailyTotalCalculator: function(){
+      for (var i = 0; i < this.hourlySales.length; i++){
+      this.totalDailySales += this.hourlySales[i];
+      }
+    },
+    allCall: function(){
+      this.hourlySalesCalc();
+      this.dailyTotalCalculator();
+      this.render();
+    },
+
 
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
@@ -118,11 +125,14 @@ render: function(){
         // append the element to the dom
         seaTac.appendChild(liEl);
         }
+        var liEl = document.createElement('li');
+        liEl.textContent = 'Total: ' + this.totalDailySales;
+        seaTac.appendChild(liEl);
+  
       }
   }
 
-seaTacAir.hourlySalesCalc();
-seaTacAir.render();
+seaTacAir.allCall();
 // totalDailySales[hourlySales];
 //total cookies
 
@@ -152,11 +162,23 @@ var seaCenter = {
   maxCust: 38,
   salesPerCust: 3.7,
   hourlySales: [],
+  totalDailySales: 0,
   hourlySalesCalc: function(){
       for (var i = 0; i < storeHours.length; i++){
       this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
       } 
   },
+  dailyTotalCalculator: function(){
+    for (var i = 0; i < this.hourlySales.length; i++){
+    this.totalDailySales += this.hourlySales[i];
+    }
+  },
+  allCall: function(){
+    this.hourlySalesCalc();
+    this.dailyTotalCalculator();
+    this.render();
+  },
+
 
   //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
@@ -170,11 +192,14 @@ render: function(){
       // append the element to the dom
       seaCen.appendChild(liEl);
       }
+      var liEl = document.createElement('li');
+      liEl.textContent = 'Total: ' + this.totalDailySales;
+      seaCen.appendChild(liEl);
+
     }
 }
 
-seaCenter.hourlySalesCalc();
-seaCenter.render();
+seaCenter.allCall();
 // totalDailySales[hourlySales];
 //total cookies
 
@@ -204,10 +229,21 @@ var capitolHill = {
   maxCust: 38,
   salesPerCust: 2.3,
   hourlySales: [],
+  totalDailySales: 0,
   hourlySalesCalc: function(){
       for (var i = 0; i < storeHours.length; i++){
       this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
       } 
+  },
+  dailyTotalCalculator: function(){
+    for (var i = 0; i < this.hourlySales.length; i++){
+    this.totalDailySales += this.hourlySales[i];
+    }
+  },
+  allCall: function(){
+    this.hourlySalesCalc();
+    this.dailyTotalCalculator();
+    this.render();
   },
 
   //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
@@ -222,11 +258,14 @@ render: function(){
       // append the element to the dom
       capHill.appendChild(liEl);
       }
+      var liEl = document.createElement('li');
+      liEl.textContent = 'Total: ' + this.totalDailySales;
+      capHill.appendChild(liEl);
+
     }
 }
 
-capitolHill.hourlySalesCalc();
-capitolHill.render();
+capitolHill.allCall();
 // totalDailySales[hourlySales];
 //total cookies
 
@@ -256,11 +295,23 @@ var alkiTwo = {
   maxCust: 38,
   salesPerCust: 2.3,
   hourlySales: [],
+  totalDailySales:0,
   hourlySalesCalc: function(){
       for (var i = 0; i < storeHours.length; i++){
       this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
       } 
   },
+  dailyTotalCalculator: function(){
+    for (var i = 0; i < this.hourlySales.length; i++){
+    this.totalDailySales += this.hourlySales[i];
+    }
+  },
+  allCall: function(){
+    this.hourlySalesCalc();
+    this.dailyTotalCalculator();
+    this.render();
+  },
+
 
   //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
@@ -274,11 +325,14 @@ render: function(){
       // append the element to the dom
       alkiOne.appendChild(liEl);
       }
+      var liEl = document.createElement('li');
+      liEl.textContent = 'Total: ' + this.totalDailySales;
+      alkiOne.appendChild(liEl);
+
     }
 }
 
-alkiTwo.hourlySalesCalc();
-alkiTwo.render();
+alkiTwo.allCall();
 // totalDailySales[hourlySales];
 //total cookies
 
