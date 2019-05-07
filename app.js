@@ -32,7 +32,7 @@ var firstAndPike = {
     totalDailySales: 0,
     hourlySalesCalc: function(){
         for (var i = 0; i < storeHours.length; i++){
-        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust));
+        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
         } 
     },
 
@@ -50,10 +50,26 @@ render: function(){
         pikeyFirst.appendChild(liEl);
       }
     }
-};
+}
+function calculateSum() {
+
+		var sum = 0;
+		//iterate through each textboxes and add the values
+		$(".txt").each(function() {
+
+			//add only if the value is number
+			if(!isNaN(this.value) && this.value.length!=0) {
+				sum += parseFloat(this.value);
+			}
+
+		});
+		//.toFixed() method will roundoff the final sum to 2 decimal places
+		$("#sum").html(sum.toFixed(2));
+	}   
+
 firstAndPike.hourlySalesCalc();
 firstAndPike.render();
-totalDailySales[hourlySales];
+calculateSum[0];
 //total cookies
 
 
@@ -78,12 +94,12 @@ var storeHours = ['6am', '7am','8am','9am', '10am', '11am', '12pm','1pm', '2pm',
 
 
 //var to call elementById
-var pikeyFirst = document.getElementById('pikeyFirst');
+var seaTac = document.getElementById('seaTac');
 
 
 
 // pike obj literal
-var firstAndPike = {
+var seaTacAir = {
     minCust: 3,
     maxCust: 24,
     salesPerCust: 1.2,
@@ -99,18 +115,21 @@ var firstAndPike = {
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
         // create an element
-        var piEl = document.createElement('pi');
+        var piEl = document.createElement('li');
         console.log('piEl is', piEl);
         // give the element content
-        piKey.textContent = this.nickname;
+        seaTacAir.textContent = this.nickname;
         console.log('piEl with content', piEl);
         // append the element to the dom
-        pikeyFirst.appendChild(piEl);
-        pikeyFirst[i].render()
+        seaTacAir.appendChild(piEl);
+        seaTTacAir[i].render()
+        
       }
 };
-firstAndPike.hourlySalesCalc();
-
+seaTacAir.hourlySalesCalc();
+seaTacAir.render();
+totalDailySales[hourlySales];
+//total cookies
 
 
 
