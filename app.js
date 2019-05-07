@@ -32,7 +32,7 @@ var firstAndPike = {
         this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
         } 
     },
-
+}
 
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
@@ -46,8 +46,24 @@ render: function(){
         // append the element to the dom
         pikeyFirst.appendChild(liEl);
       }
+      var totalOne = 0;
+
+      for (i = 0; i < this.hourlySales.length; i++){
+        totalOne += this.hourlySales[i];
+      }
+
+      var totalEl = document.createElement('li');
+      console.log('totalEl is' totalEl);
+      totalEl.textContent = 'Total: + totalOne + ' cookies ';
+      firstAndPike.appendChild();
     }
-}
+
+  //helper function
+
+// function calcRandomCustomers(min, max){
+  // following line from MDN docs on math.random
+// return Math.floor)(Math.random() * ( min - max + 1 ))
+
 
 firstAndPike.hourlySalesCalc();
 firstAndPike.render();
