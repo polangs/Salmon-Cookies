@@ -19,7 +19,17 @@ h2{
     color: rgb(65, 72, 80);
     padding-left: 30px;
 }
+h3{
+    color: rgb(65, 72, 80);
+    padding-left: 30px; 
+}
 ul{
     display: block;
+}
+.fish{
+    width: 400px;
+    height: 200;
+    margin-left:100px
+
 }
 

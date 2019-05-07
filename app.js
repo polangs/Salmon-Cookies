@@ -17,11 +17,8 @@ function getRandomIntInclusive(min, max) {
 var storeHours = ['6am', '7am','8am','9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm',
 '6pm','7pm','8pm'];
 
-
-
 //var to call elementById
 var pikeyFirst = document.getElementById('pikeyFirst');
-
 
 // pike obj literal
 var firstAndPike = {
@@ -39,7 +36,7 @@ var firstAndPike = {
 
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
-        for (var i = 0; i <storeHours.length; i++){
+        for (var i = 0; i < storeHours.length; i++){
         // create an element
         var liEl = document.createElement('li');
         console.log('liEl is', liEl);
@@ -51,25 +48,10 @@ render: function(){
       }
     }
 }
-function calculateSum() {
-
-		var sum = 0;
-		//iterate through each textboxes and add the values
-		$(".txt").each(function() {
-
-			//add only if the value is number
-			if(!isNaN(this.value) && this.value.length!=0) {
-				sum += parseFloat(this.value);
-			}
-
-		});
-		//.toFixed() method will roundoff the final sum to 2 decimal places
-		$("#sum").html(sum.toFixed(2));
-	}   
 
 firstAndPike.hourlySalesCalc();
 firstAndPike.render();
-calculateSum[0];
+// calculateSum[0];
 //total cookies
 
 
@@ -92,10 +74,8 @@ function getRandomIntInclusive(min, max) {
 var storeHours = ['6am', '7am','8am','9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm',
 '6pm','7pm','8pm'];
 
-
 //var to call elementById
 var seaTac = document.getElementById('seaTac');
-
 
 
 // pike obj literal
@@ -106,30 +86,33 @@ var seaTacAir = {
     hourlySales: [],
     hourlySalesCalc: function(){
         for (var i = 0; i < storeHours.length; i++){
-        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust));
-
+        this.hourlySales.push(Math.ceil(getRandomIntInclusive(this.minCust, this.maxCust) * this.salesPerCust))
         } 
     },
 
-
     //render - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 render: function(){
+        for (var i = 0; i < storeHours.length; i++){
         // create an element
-        var piEl = document.createElement('li');
-        console.log('piEl is', piEl);
+        var liEl = document.createElement('li');
+        console.log('liEl is', liEl);
         // give the element content
-        seaTacAir.textContent = this.nickname;
-        console.log('piEl with content', piEl);
+        liEl.textContent = storeHours[i] + ': ' + this.hourlySales[i] + ' cookies';        
+        console.log('liEl with content', liEl);
         // append the element to the dom
-        seaTacAir.appendChild(piEl);
-        seaTTacAir[i].render()
-        
+        seaTac.appendChild(liEl);
+        }
       }
-};
+  }
+
 seaTacAir.hourlySalesCalc();
 seaTacAir.render();
-totalDailySales[hourlySales];
+// totalDailySales[hourlySales];
 //total cookies
+
+
+
+
 
 
 
