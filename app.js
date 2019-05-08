@@ -1,7 +1,7 @@
 'use strict';
 
 
-//holds all the stores object instances
+//global variables
 var allStores = [];
 var hourlyTotals = [];
 var grandTotal = 0;

@@ -9,28 +9,43 @@
     <body>
         <h1>Pats Salmon Cookies</h1>
 
+            
+        <h2> Seattles Best</h2>
+        
+        <img id = "fish" src = "salmon.png" alt="Salmon"></img>
+            
             <form id="chat-form">
                 <fieldset>
                     <legend>Sales Submission Form</legend>
 
                     <label for="store-name">Store Name:</label>
-                    <input name = "which" type="text" size="15" placeholder="which" required/>
+                    <input name = "location name" type="text" size="15" placeholder="location name" required/>
+                    <button type="submit">Enter Location Name</button>
+                   
+                    <label for="minimum-customer">Minimum Customer:</label>
+                    <input name = "minimum customer" type="text" size="15" placeholder="min customer" required/>
+                    <button type="submit">Enter Number of Customer</button>
+
+                    <label for="minimum-customer">Max Customer Customer:</label>
+                    <input name = "maximum customer" type="text" size="15" placeholder="max customer" required/>
+                    <button type="submit">Enter Number of Customer</button>
 
 
-                    <button type="submit">Create New Comment!</button>
-
-
-
-
-
+                    <label for="minimum-customer">Average Total:</label>
+                    <input name = "average total" type="text" size="15" placeholder="average total" required/>
+                    <button type="submit">Enter Average Total</button>
+                </fieldset>
             </form>
 
-        <h2> Seattles Best</h2>
-        
-        <img id = "fish" src = "salmon.png" alt="Salmon"></img>
-        
+            <button id = "clear">Clear Sales List!</button>
+            
+            <ul id = "clear"></ul>
+
     
         <table id="store-table"></table>
+
+        
+
 
         <script src="app.js" type="text/javascript"></script>
 
