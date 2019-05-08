@@ -51,18 +51,21 @@ this.render();
         var tdEl = document.createElement('td');
         tdEl.textContent = this.storeName;
         trEl.appendChild(tdEl);
+
         for ( var i = 0; i < storeHours.length; i ++){
           tdEl = document.createElement('td');
           tdEl.textContent = this.hourlySales[i];
           trEl.appendChild(tdEl);
         }
+
         tdEl = document.createElement('td');
         tdEl.textContent = this.totalDailySales;
         trEl.appendChild(tdEl);
         storeTable.appendChild(trEl);
       
       }
-      
+
+//populating all shops array
     allStores.push(this);
   }
      
@@ -72,12 +75,13 @@ var seaCen = new Store (11, 38, 3.7, 'Seattle Center');
 var capitolHill = new Store (20, 38, 2.3, 'Capitol Hill');
 var alkiOne = new Store (2, 16, 4.6, 'Alki');
 
-
+//generates header row of the table
 function tableHeaderRow (){
   var trEl = document.createElement ('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Name';
   trEl.appendChild(thEl);
+
   for ( var i = 0; i < storeHours.length; i ++){
     thEl = document.createElement('th');
     thEl.textContent = storeHours[i];
