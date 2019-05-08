@@ -1,7 +1,7 @@
 'use strict';
 
 
-
+//holds all the stores object instances
 var allStores = [];
 
 //source mdn math.random
@@ -12,14 +12,14 @@ function getRandomIntInclusive(min, max) {
   }
 
 
-//store hours firstAndPike
+//store hours
 var storeHours = ['6am', '7am','8am','9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm',
 '6pm','7pm','8pm'];
 
 //var to call elementById
 var storeTable = document.getElementById('store-table');
 
-// pike obj literal
+//constructor function
 function Store (min,max,avg,name) {
   this.minCust = min;
   this.maxCust = max;
@@ -33,6 +33,7 @@ for (var i = 0; i < storeHours.length; i++){
         } 
     }
 
+//record of sales per hour
 this.dailyTotalCalculator = function(){
     for (var i = 0; i < this.hourlySales.length; i++){
     this.totalDailySales += this.hourlySales[i];
