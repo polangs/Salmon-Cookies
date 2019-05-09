@@ -1,10 +1,10 @@
 'use strict';
 
 
-//global variables
+//global variable
+
+var salesform = document.getElementById('salesform');
 var allStores = [];
-var hourlyTotals = [];
-var grandTotal = 0;
 
 //source mdn math.random
 function getRandomIntInclusive(min, max) {
@@ -88,40 +88,41 @@ function tableHeaderRow (){
   storeTable.appendChild(trEl);
 }
 function renderAllStores(){
+  storeTable.innerHTML = '';
   for (var i = 0; i < allStores.length; i++){
     allStores[i].allCall();
   }
 }
-//footer row function
-function totalPerDayFooter (){
-  var tFoot= document.createElement('tfoot');
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Totals';
-  trEl.appendChild(tdEl);
-  for (var i = 0; i < storeHours.length; i++){
-    tdEl = document.createElement('td');
-    tdEl.textContent = hourlyTotals[i];
-    trEl.appendChild(tdEl);
-  }
-  tdEl = document.createElement('td');
-  tdEl.textContent = grandTotal;
-  trEl.appendChild(tdEl);
-  tFoot.appendChild(trEl);
-  storeTable.appendChild(tFoot);
-}
+// //footer row function
+// function totalPerDayFooter (){
+//   var tFoot= document.createElement('tfoot');
+//   var trEl = document.createElement('tr');
+//   var tdEl = document.createElement('td');
+//   tdEl.textContent = 'Totals';
+//   trEl.appendChild(tdEl);
+//   for (var i = 0; i < storeHours.length; i++){
+//     tdEl = document.createElement('td');
+//     tdEl.textContent = hourlyTotals[i];
+//     trEl.appendChild(tdEl);
+//   }
+//   tdEl = document.createElement('td');
+//   tdEl.textContent = grandTotal;
+//   trEl.appendChild(tdEl);
+//   tFoot.appendChild(trEl);
+//   storeTable.appendChild(tFoot);
+// }
 
 //hourly store total per day
-function getAllSumFooter (){
-  for (var i = 0; i < storeHours.length; i++){
-    var columnTotal = 0;
-    for (var j = 0; j < allStores.length; j++){
-      columnTotal += allStores[j].hourlySales[i];
-    }
-    grandTotal += columnTotal;
-    hourlyTotals[i] = columnTotal;
-  }
-}
+// function getAllSumFooter (){
+//   for (var i = 0; i < storeHours.length; i++){
+//     var columnTotal = 0;
+//     for (var j = 0; j < allStores.length; j++){
+//       columnTotal += allStores[j].hourlySales[i];
+//     }
+//     var grandTotal += columnTotal;
+//     hourlyTotals[i] = columnTotal;
+//   }
+// }
 
 new Store (23, 65, 6.3, 'First and Pike');
 new Store (3, 24, 1.2, 'Seatac Airport');
@@ -129,10 +130,26 @@ new Store (11, 38, 3.7, 'Seattle Center');
 new Store (20, 38, 2.3, 'Capital Hill');
 new Store (2, 16, 4.6, 'Alki');
 
+function handleSalesForm (event){
+  event.preventDefault();
+  console.log ('The handler has been invoked');
+  console.log (event.target.locationName.value);
+  console.log (event.target.minimumCustomer.value);
+  console.log (event.target.maximumCustomer.value);
+  console.log (event.target.averageTotal.value);
+  var newStore = new Store (event.target.minimumCustomer.value,event.target.maximumCustomer.value,event.target.averageTotal.value,event.target.locationName.value);
+  renderAllStores();
+}
+
+
+
 tableHeaderRow();
 renderAllStores();
 // rendertotalPerHour();
-getAllSumFooter();
-totalPerDayFooter();
+// getAllSumFooter();
+// totalPerDayFooter();
+
+salesform.addEventListener('submit', handleSalesForm);
+
 
 
