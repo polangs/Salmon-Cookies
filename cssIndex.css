@@ -1,5 +1,5 @@
 body{
-    display: block;
+    display: block; 
     background: content-box radial-gradient(rgb(213, 222, 230), rgb(135, 210, 235));
 } 
 h1{
@@ -17,11 +17,21 @@ h1{
     color: rgb(65, 61, 61);
     font-size: 30px;
 }
+#family{
+    margin-left: 200px;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 200px;
+    border: solid gray;
+
+
+}
 h2{
     color: rgb(65, 72, 80);
-    text-align: center;
+    text-align: left;
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
+    margin-left: 50px;
 }
 #fish{
     display: block;
@@ -41,19 +51,54 @@ a{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 500px;
     border: 5px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 6px 0px  rgba(211, 211, 211, 0.3);
     padding: 20px;
     margin-top: 10px;
     padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 200px;
     margin-block-end: 20px;
-}
-.pic1{
-    width: 200px;
-    height: auto;
-    align-content: center;
+    display: inline-block; 
 }
 p{
-    padding: 50px;
+    padding: 20px;
+    margin-left: 50px;
+    line-height: 1cm;
+    text-indent: 2pc;
+    font-size: 25px;
 }
+footer{
+    border-bottom: gray;
+    border: solid 2px black;
+}
+h3{
+    font-weight: bold;
+    color: gray;
+    margin-left: 50px;
+    float: left;
+    padding: 5px;
+}
+ul{
+    float: left;
+    padding: 6px;
+    font-size: 20px;
+}
+.row2{
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 500px;
+        border: 5px solid #ccc;
+        box-shadow: 2px 2px 6px 0px  rgba(211, 211, 211, 0.3);
+        padding: 20px;
+        margin-top: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-left: 500px;
+        margin-block-end: 20px;
+        display: inline-block; 
+}
+
+
+
+
     
 
